@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>💕بیرون رفتن با رها.</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Animated Background Layers -->
+    <div class="bg-gradient-animated"></div>
+    <div class="bg-orb bg-orb--pink"></div>
+    <div class="bg-orb bg-orb--purple"></div>
+    <div class="bg-orb bg-orb--gold"></div>
+
+    <!-- Floating Hearts Container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Confetti Overlay -->
+    <div class="confetti-overlay" id="confettiOverlay"></div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+      <div class="glass-card" id="appCard">
+        <!-- Progress Indicator Dots -->
+        <div class="progress-dots" id="progressDots">
+          <span class="dot active" data-step="1"></span>
+          <span class="dot" data-step="2"></span>
+          <span class="dot" data-step="3"></span>
+          <span class="dot" data-step="4"></span>
+        </div>
+
+        <!-- Page 1: The Question -->
+        <div class="page active" id="page1">
+          <div class="text-center">
+            <div class="text-5xl mb-4 animate-bounce-slow">💕</div>
+            <h1
+              class="font-display text-3xl md:text-4xl font-bold text-white mb-3 leading-tight"
+            >
+              با من میای بیرون؟<br />
+            </h1>
+            <p class="text-white/30 text-sm mb-8">✨صادق باش ✨</p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <button class="btn-primary text-lg px-10" id="yesBtn">
+                معلومه ❤️
+              </button>
+              <div class="btn-no-wrapper">
+                <button class="btn-no text-lg px-8" id="noBtn">نه ❌</button>
+              </div>
+            </div>
+            <div
+              id="noMessage"
+              class="mt-6 text-pink-300/70 text-sm font-medium hidden transition-all"
+            >
+              🥺 مطمعنی دوباره تلاش کن... 💕
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2: Food Selection -->
+        <div class="page" id="page2">
+          <div class="text-center mb-6">
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-white">
+                هوس چه غذایی کردی؟            </h2>
+            <p class="text-white/30 text-sm mt-1">فعالیت مدنظرت رو انتخاب کن </p>
+          </div>
+          <div class="food-grid" id="foodGrid">
+            <div class="food-item" data-food="پیتزا">
+              <span class="emoji">🍕</span>
+              <span class="label">بریم پیتزا بخوریم</span>
+            </div>
+            <div class="food-item" data-food="برگر">
+              <span class="emoji">🍔</span>
+              <span class="label">بریم برگر بخوریم</span>
+            </div>
+            <div class="food-item" data-food="ساندویچ">
+              <span class="emoji">🥪</span>
+              <span class="label">بریم ساندویچ بخوریم</span>
+            </div>
+            <div class="food-item" data-food="پاستا">
+              <span class="emoji">🍝</span>
+              <span class="label">بریم پاستا بخوریم</span>
+            </div>
+            <div class="food-item" data-food="تاکو">
+              <span class="emoji">🌮</span>
+              <span class="label">بریم تاکو بخوریم</span>
+            </div>
+            <div class="food-item" data-food="رامن">
+              <span class="emoji">🍜</span>
+              <span class="label">بریم رامن بخوریم</span>
+            </div>
+            <div class="food-item" data-food="کباب">
+              <span class="emoji">🍢</span>
+              <span class="label">بریم کباب بخوریم</span>
+            </div>
+            <div class="food-item" data-food="دسر">
+              <span class="emoji">🍰</span>
+              <span class="label">دسر بریم بخوریم</span>
+            </div>
+            <div class="food-item" data-food="سوخاری">
+                <span class="emoji">🍗<span>
+              <span class="label">بریم سوخاری بخوریم</span>
+            </div>
+            <div class="food-item" data-food="پاساژ">
+                <span class="emoji">🛍️</span>
+                <span class="label">بریم پاساژ گردی</span>
+            </div>
+            <div class="food-item" data-food="شهربازی">
+                <span class="emoji">🎡</span>
+                <span class="label">بریم شهربازی</span>
+            </div>
+            <div class="food-item" data-food="اتاق فرار">
+              <span class="emoji">👻</span>
+              <span class="label">بریم اتاق فرار</span>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <button class="btn-primary px-12" id="foodNextBtn" disabled>
+              بعدی 🍴
+            </button>
+            <p id="foodError" class="text-pink-300/50 text-xs mt-2 hidden">
+              اول یه دونه رو انتخاب کن
+            </p>
+          </div>
+        </div>
+        <!-- Page 3: Date & Time Picker -->
+        <div class="page" id="page3">
+          <div class="text-center mb-5">
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-white">
+              خب... کی وقت داری ؟
+            </h2>
+            <p class="text-white/30 text-sm mt-1">🎉 یه تاریخ و ساعت انتخاب کن 🎉</p>
+          </div>
+          <!-- Calendar Widget -->
+          <div class="mb-5">
+            <div class="calendar-header">
+              <button class="nav-btn" id="calPrev" aria-label="Previous month">
+                ‹
+              </button>
+              <span class="month-year" id="calMonthYear">June 2026</span>
+              <button class="nav-btn" id="calNext" aria-label="Next month">
+                ›
+              </button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- JS rendered -->
+            </div>
+          </div>
+          <!-- Time Slots -->
+          <div class="mb-5">
+            <p
+              class="text-white/40 text-xs font-medium uppercase tracking-wider mb-2"
+            >
+              یه ساعت انتخاب کن
+            </p>
+            <div class="time-grid" id="timeGrid">
+              <!-- JS rendered -->
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="btn-primary px-10" id="dateSetBtn" disabled>
+              تاریخ انتخاب کن 🎉
+            </button>
+            <p id="dateError" class="text-pink-300/50 text-xs mt-2 hidden">
+              لطفا یک تاریخ و زمان انتخاب کن
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 4: Confirmation -->
+        <div class="page" id="page4">
+          <div class="text-center relative">
+            <!-- Glow Rings -->
+            <div class="glow-ring glow-ring--pink"></div>
+            <div class="glow-ring glow-ring--purple"></div>
+            <div class="relative z-10">
+              <div class="text-5xl md:text-6xl mb-2 heartbeat">💖</div>
+              <h1
+                class="font-display text-4xl md:text-5xl font-bold text-white mb-1 text-shadow-glow"
+              >
+                هورا!!!
+              </h1>
+              <p class="text-pink-300/60 text-sm mb-5">✨ میبینمت ✨</p>
+              <div class="space-y-2 text-left max-w-xs mx-auto">
+                <div class="confirmation-detail">
+                  <span class="icon">📅</span>
+                  <div>
+                    <div class="text" id="confirmDate">Friday, June 26</div>
+                    <div class="sub">date</div>
+                  </div>
+                </div>
+                <div class="confirmation-detail">
+                  <span class="icon">🕒</span>
+                  <div>
+                    <div class="text" id="confirmTime">8:00 PM</div>
+                    <div class="sub">زمان</div>
+                  </div>
+                </div>
+                <div class="confirmation-detail">
+                  <span class="icon">✨</span>
+                  <div>
+                    <div class="text" id="confirmFood">Pasta</div>
+                    <div class="sub">فعالیت</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6">
+                <p class="text-white/80 text-lg font-medium">
+                  نمیتونم صبر کنم تا ببینمت 🥰✨
+                </p>
+                <p class="text-white/20 text-xs mt-4 italic max-w-xs mx-auto">
+                😂 برو حال کن برات یه سایت درست کردم<br />
+                </p>
+              </div>
+              <button class="btn-secondary mt-6 text-sm" id="resetBtn">
+                🔄 نظرت عوض شد؟
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
