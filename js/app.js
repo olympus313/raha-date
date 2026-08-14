@@ -354,7 +354,7 @@ noBtn.addEventListener("click", (e) => {
     }, 600);
   }
   if (noClickCount > 6) {
-    noMessage.textContent = ! 💖";
+    noMessage.textContent = "💖 باشه من خودم برات بله رو انتخاب میکنم! 💖";
     setTimeout(() => {
       yesBtn.click();
     }, 400);
