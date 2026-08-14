@@ -4,7 +4,7 @@ const AppState = {
   food: null,
   date: null,
   time: null,
-  calMonth: 5, // June (0-indexed)
+  calMonth: 8, // June (0-indexed)
   calYear: 2026,
 };
 
@@ -55,20 +55,20 @@ const TIME_SLOTS = [
   "8:30 PM",
 ];
 
-const DAYS_SHORT = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const DAYS_SHORT = ["یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
 const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
 ];
 
 // ---------- Floating Hearts Initialization ----------
@@ -335,12 +335,12 @@ noBtn.addEventListener("click", (e) => {
   noClickCount++;
   noMessage.classList.remove("hidden");
   const messages = [
-    "🥺 are you sure? try again... 💕",
-    "😤 i said YES only!",
-    "💀 you can't escape!",
-    "🥰 just say YES already!",
-    "💗 i'll keep asking...",
-    "❤️ YES is the only answer!",
+    "🥺 مطمئنی دوباره انتخاب کن... 💕",
+    "گفتم فقط آره 😡!",
+    "💀 نمیتونی از این فرار کنی!",
+    "🥰 فقط آره رو انتخاب کن!",
+    "💗 من بس نمیکنم...",
+    "❤️ تنها جواب قابل قبول بله است!",
   ];
   noMessage.textContent =
     messages[Math.min(noClickCount - 1, messages.length - 1)];
@@ -354,7 +354,7 @@ noBtn.addEventListener("click", (e) => {
     }, 600);
   }
   if (noClickCount > 6) {
-    noMessage.textContent = "💖 okay i'm clicking YES for you! 💖";
+    noMessage.textContent = ! 💖";
     setTimeout(() => {
       yesBtn.click();
     }, 400);
@@ -400,4 +400,4 @@ renderCalendar();
 renderTimes();
 goToStep(1);
 
-console.log("💕 Made with love for someone special ✨");
+console.log("💕 درست شده با عشق برای فردی خاص ✨");
